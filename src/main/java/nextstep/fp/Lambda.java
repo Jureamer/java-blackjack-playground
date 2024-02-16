@@ -25,8 +25,10 @@ public class Lambda {
             }
         }).start();
     }
-
-    public static int sumAll(List<Integer> numbers) {
+    public static int sumAccordingCondition(List<Integer> numbers, Conditional c) {
+        return numbers.stream().filter(c::test).mapToInt(Integer::intValue).sum();
+    }
+    public static int sumAll(List<Integer> numbers, Conditional c) {
         int total = 0;
         for (int number : numbers) {
             total += number;
